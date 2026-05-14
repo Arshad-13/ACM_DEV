@@ -15,10 +15,12 @@ export interface Event {
   id: string;
   title: string;
   date: string;
+  location?: string;
   description: string;
   category: string;
   image?: string;
   registrationLink?: string;
+  participantsCount?: number;
   isUpcoming: boolean;
 }
 
