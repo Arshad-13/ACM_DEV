@@ -11,13 +11,17 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  try {
-    const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = getPostBySlug(resolvedParams.slug);
+  
+  if (!post) {
+    return notFound();
+  }
 
-    return (
-      <div className="min-h-screen pt-24 pb-20 w-full overflow-x-hidden">
-        <div className="max-w-[680px] mx-auto px-4 md:px-0">
+  return (
+    <div className="min-h-screen pt-24 pb-20 w-full overflow-x-hidden">
+      <div className="max-w-[680px] mx-auto px-4 md:px-0">
           <Link href="/blog" className="inline-flex items-center gap-2 text-[var(--accent)] hover:text-[var(--accent-dark)] transition-colors mb-8 text-sm font-medium">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
@@ -45,7 +49,4 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
     );
-  } catch (e) {
-    return notFound();
-  }
 }

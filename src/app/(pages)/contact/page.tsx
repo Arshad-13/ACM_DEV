@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { MailIcon, MapPinIcon, ClockIcon } from "lucide-react";
 import TerminalContactForm from "@/components/ui/terminal-contact-form";
 import ScrollReveal from "@/components/shared/ScrollReveal";

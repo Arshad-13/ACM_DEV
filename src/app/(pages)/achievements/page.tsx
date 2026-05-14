@@ -13,6 +13,12 @@ const extendedAchievements = [
 ];
 
 export default function AchievementsPage() {
+  // Generate stable durations based on achievement ID (deterministic, no impure function)
+  const getStableDuration = (id: string) => {
+    const hash = id.charCodeAt(0) * 1000;
+    return 3000 + (hash % 2000);
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-0 w-full overflow-x-hidden">
       <div className="container-width pb-20">
@@ -69,7 +75,7 @@ export default function AchievementsPage() {
               );
 
               return achievement.prestigious ? (
-                <MovingBorder key={achievement.id} duration={3000 + Math.random() * 2000} containerClassName="h-full">
+                <MovingBorder key={achievement.id} duration={getStableDuration(achievement.id)} containerClassName="h-full">
                   <CardContent />
                 </MovingBorder>
               ) : (

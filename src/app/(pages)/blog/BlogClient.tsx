@@ -3,12 +3,24 @@ import { useState } from "react";
 import Link from "next/link";
 import { ClockIcon, CalendarIcon } from "lucide-react";
 
-export default function BlogClient({ initialPosts }: { initialPosts: any[] }) {
+interface BlogPost {
+  slug: string;
+  meta: {
+    title: string;
+    date: string;
+    author: string;
+    readingTime: string;
+    excerpt?: string;
+    tags?: string[];
+  };
+}
+
+export default function BlogClient({ initialPosts }: { initialPosts: BlogPost[] }) {
   const [selectedTag, setSelectedTag] = useState("All");
 
   const allTags = ["All", ...Array.from(new Set(initialPosts.flatMap(p => p.meta.tags || [])))];
 
-  const filteredPosts = selectedTag === "All" 
+const filteredPosts: BlogPost[] = selectedTag === "All" 
     ? initialPosts 
     : initialPosts.filter(p => p.meta.tags?.includes(selectedTag));
 

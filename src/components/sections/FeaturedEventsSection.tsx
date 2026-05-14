@@ -43,7 +43,7 @@ export default function FeaturedEventsSection() {
         <div className="mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 uppercase tracking-tighter">
-              What We've Been <span className="text-[var(--accent)]">Up To</span>
+              What We&apos;ve Been <span className="text-[var(--accent)]">Up To</span>
             </h2>
             <p className="text-zinc-400 text-lg font-mono tracking-tight">
               From flagship hackathons to hands-on workshops.

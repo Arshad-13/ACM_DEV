@@ -32,7 +32,7 @@ export default function AboutPage() {
         </div>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <p className="max-w-[50ch] font-mono text-[clamp(1rem,1.5vw,2rem)] font-normal leading-relaxed">
-          A community built for engineers, by engineers. We're rewriting the rules of how students learn, collaborate, and push the boundaries of technology.
+          A community built for engineers, by engineers. We&apos;re rewriting the rules of how students learn, collaborate, and push the boundaries of technology.
         </p>
         <hr className="my-[2vw] border-none border-t border-white/20" />
         <div className="flex flex-wrap gap-[3vw] font-mono">
@@ -110,7 +110,7 @@ export default function AboutPage() {
         </div>
         <hr className="my-[2vw] border-none border-t border-black opacity-100" />
         <p className="mt-auto max-w-[50ch] font-mono text-[clamp(1rem,1.5vw,2rem)] font-normal leading-relaxed">
-          Take control of your technical journey. Join ACM SVNIT and let's shape the future of computing together.
+          Take control of your technical journey. Join ACM SVNIT and let&apos;s shape the future of computing together.
         </p>
       </FlowSection>
     </FlowArt>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar, Code, FileText, User, Clock, Terminal, Zap } from "lucide-react";
+import { Calendar, Code, FileText, User, Terminal, Zap } from "lucide-react";
 import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 
 const timelineData = [
@@ -98,14 +98,14 @@ export default function EventsPage() {
           
           <div className="grid grid-cols-2 gap-6 pt-12 border-t border-[#1A1A1A]">
              <div className="space-y-1">
-               <p className="text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest">// chapter_status</p>
+               <p className="text-[var(--accent)] font-mono text-[10px] uppercase tracking-widest">{"// chapter_status"}</p>
                <p className="text-white font-mono text-sm uppercase font-bold flex items-center gap-2">
                  <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
                  Active 2024-25
                </p>
              </div>
              <div className="space-y-1">
-               <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest">// mission_protocol</p>
+               <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-widest">{"// mission_protocol"}</p>
                <p className="text-white font-mono text-sm uppercase font-bold">Innovation first</p>
              </div>
           </div>
