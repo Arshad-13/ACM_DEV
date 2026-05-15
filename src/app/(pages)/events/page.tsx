@@ -205,7 +205,7 @@ export default function EventsPage() {
               </p>
               <div className="mt-auto">
                 <span className="text-xs font-mono font-bold text-white uppercase tracking-widest flex items-center gap-2">
-                  <span className={`w-2 h-2 rounded-full ${event.status === 'completed' ? 'bg-white' : event.status === 'in-progress' ? 'bg-[var(--accent)] animate-pulse' : 'bg-zinc-600'}`}></span>
+                  <span className={`w-2 h-2 rounded-full ${event.status === 'completed' ? 'bg-white' : 'bg-zinc-600'}`}></span>
                   {event.status}
                 </span>
               </div>

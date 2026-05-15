@@ -18,67 +18,63 @@ This repository contains the official website for the **ACM SVNIT Student Chapte
 
 ### Architecture
 The project is built on a modern, highly-performant frontend stack utilizing a component-based architecture with a strict Server/Client component split:
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 16 (App Router / Turbopack)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
+- **Styling:** Tailwind CSS v4 (Alpha/Beta)
 
 ### Design Philosophy
-The website embraces a **Dark-First UI** tailored to resonate with developers. The core palette uses deep zinc backgrounds paired with the official ACM blue accent (`#0EA5E9`). 
-- **Typography:** We utilize `Geist Sans` and `Geist Mono` for clean, highly legible, and modern developer aesthetics.
-- **Motion Design:** The experience is brought to life using heavy, yet smooth, motion design powered by **Framer Motion** and **GSAP**, adding depth and premium micro-interactions across every view.
+The website is built on a **Brutalist Dark** design system engineered for developer resonance — flat, high-contrast, and unapologetically monochrome.
+- **Color System:** Pure pitch-black (`#000000`) canvas with a **Neon Cyan** accent (`#00F0FF`) — a deliberate aesthetic choice for the "hacker / computational" vibe. The theme is structured as a layered surface system (`--surface`, `--surface-raised`, `--surface-hover`) to provide depth without gradients.
+- **Typography:** Display headings use **Space Grotesk** at ultra-tight letter spacing (`-0.05em`) and a clamp-based fluid scale (64px → 120px). Body copy uses a geometric `--font-sans` for legibility, while all interactive terminal elements are rendered in `--font-mono` for authenticity.
+- **Background:** A subtle **wireframe grid** (40×40px, 5% white opacity) creates spatial depth on the hero without distracting from the content.
+- **Motion Design:** Powered by **Framer Motion** for UI state transitions and **GSAP ScrollTrigger** for the event trajectory visualization.
 
 ### Tech Decisions & Reasoning
-- **Why Next.js 15:** We required robust SEO for the chapter website, making SSR essential. The App Router provides intuitive, nested layout handling, and built-in image optimization ensures our heavy asset pages (like the Team page) load blazingly fast.
-- **Why Aceternity UI:** We opted for Aceternity UI to integrate pre-built, premium animated components (like 3D Tilt Cards, Spotlight Effects, and Infinite Marquees) that perfectly match the "developer tool" aesthetic without the overhead of building complex WebGL/Canvas interactions from scratch.
-- **Why GSAP for scroll:** While Framer Motion handles state-based animations, **ScrollTrigger** from GSAP was chosen to provide pixel-perfect, scrubbable timeline controls for complex scroll animations (such as the drawing effect on the vertical timeline on the Events page), which is nearly impossible to orchestrate with CSS alone.
-- **Why shadcn/ui:** We needed accessible, unstyled base components (Tabs, Dialogs) that gave us 100% ownership of the code, rather than fighting against an overly opinionated component library.
+- **Why Next.js 16:** We leveraged the latest Next.js 16 build for **Turbopack** support, providing near-instantaneous hot module replacement during development of complex animations.
+- **Why Cloudinary:** All chapter personnel and event media are hosted on Cloudinary, enabling automated on-the-fly optimization and transformation to maintain a high PageSpeed score despite heavy visual assets.
+- **Why GSAP & Framer Motion:** While Framer Motion handles declarative component state animations, **GSAP ScrollTrigger** powers the high-performance, scrubbable event timelines that require sub-pixel precision.
+- **Why shadcn/ui & Aceternity:** This combination allowed us to pair reliable, accessible UI primitives with premium, developer-centric aesthetic components (like Background Beams and Moving Borders).
 
 ### Core Pages
-- **Home:** A dynamic landing page featuring a Bento grid of events, statistics, and chapter testimonials.
-- **Team:** An interactive, heavily animated cohort directory featuring a mandatory robust archive feature to navigate past team members.
-- **Events:** A GSAP-powered vertical timeline tracking both upcoming workshops and past hackathons.
-- **Achievements:** A dedicated dashboard displaying national awards, open-source PR statistics, and chapter milestones.
-- **About:** Details our mission, history, and faculty advisory board.
-- **Blog:** A fully custom MDX-based blogging platform utilizing `next-mdx-remote` for publishing technical content.
-- **Contact:** An interactive two-column form for sponsorship and membership inquiries.
+- **Home:** Dynamic landing hub with interactive Bento grids and real-time chapter statistics.
+*   **DotSlash Portal:** A dedicated, high-fidelity experience for ACM NIT Surat's flagship 24-hour hackathon.
+- **Team Archives:** A verified personnel directory featuring a robust cohort-based navigation system (2014–Present).
+- **Event Trajectory:** An interactive dual-orbit visualization tracking chapter milestones and workshops.
+- **Achievements:** A verified dashboard showcasing national awards and major institutional milestones.
+- **Join Us:** A technical recruitment portal with interactive terminal-based protocol guides.
+- **Blog:** An MDX-powered technical publishing platform for chapter-wide engineering insights.
 
 ### Folder Structure
 ```text
 src/
 ├── app/
-│   ├── (pages)/       # Route groups for organized page architecture
-│   ├── layout.tsx     # Global layout and PageTransition wrappers
-│   └── globals.css    # Design system CSS variables and typography
+│   ├── (pages)/       # Route groups (Home, DotSlash, Events, Team, Join, Blog...)
+│   ├── globals.css    # Brutalist design system, CSS variables and typography
+│   └── layout.tsx     # Root layout, page transition orchestration
 ├── components/
-│   ├── aceternity/    # Complex animation components (copy-pasted)
-│   ├── layout/        # Navbar, Footer, and structural components
-│   ├── sections/      # Modular page sections (Hero, Stats, etc.)
-│   ├── shared/        # Reusable wrappers (ScrollReveal)
-│   └── ui/            # shadcn/ui base primitives
+│   ├── aceternity/    # Premium animation primitives (Beams, Borders, Spotlights)
+│   ├── layout/        # Navbar, Footer and global structural components
+│   ├── sections/      # Page-specific modular sections (Hero, Stats, CTA, etc.)
+│   ├── shared/        # Reusable wrappers (ScrollReveal, containers)
+│   └── ui/            # shadcn/ui base primitives and custom atoms
 ├── content/           # MDX files for blog posts
-├── data/              # Static JSON-like data layers (Team, Events, Achievements)
-├── lib/               # Utility functions and MDX parsers
-└── types/             # Global TypeScript interfaces
+├── data/              # Ground truth JSON/TS data layers (Team, Events, Achievements)
+├── lib/               # Personnel verification logic and MDX parsers
+└── types/             # Strict TypeScript domain definitions
 ```
 
 ---
 
 ## SECTION 2 — FUTURE SCOPE
 
-Our vision for the platform extends far beyond a static informational site. Here is the detailed roadmap of planned features:
+Our roadmap focuses on transitioning from a static archive to an interactive ecosystem. The following 6 protocols are prioritized for the next development phase:
 
-1. **Member Portal:** A secure login system for chapter members to manage their user profiles, RSVP to upcoming events, and access exclusive learning resources.
-2. **Event Registration System:** Native, built-in registration forms handling waitlist management and automated email confirmations via the Resend API.
-3. **Admin Dashboard:** A protected route enabling committee members to seamlessly add/edit events, manage team data, and publish blog posts through a CMS GUI—requiring zero code updates.
-4. **ACM Digital Library Integration:** Direct embedded access to ACM's premium research papers and educational resources for authenticated SVNIT members.
-5. **Chapter Analytics:** An internal dashboard visualizing member growth, event attendance trends, and resource popularity to drive better chapter decisions.
-6. **Multi-language Support:** Hindi and Gujarati localization (i18n) to foster broader community reach within the SVNIT ecosystem.
-7. **Push Notifications:** Upgrading the site to a Progressive Web App (PWA) with web push notifications to serve automated reminders for upcoming events and deadlines.
-8. **Alumni Network:** A dedicated, searchable directory mapping where past members currently work or study (with opt-in consent), facilitating stronger networking.
-9. **Live Event Streaming:** Native integration with the YouTube Live or Zoom APIs to allow remote attendance directly through the chapter portal.
-10. **Automated Social Media:** A webhook integration that automatically drafts and posts to the official ACM SVNIT LinkedIn and Instagram accounts whenever a new blog post is published.
-11. **System Theme Sync:** A robust Dark/Light mode toggle that perfectly syncs with the user's OS preference.
-12. **Governance Section:** A publicly accessible, transparent archive of the chapter constitution, bylaws, and governance documents.
+1. **Member Portal & Identity**: A secure authentication layer allowing members to manage profiles, track event participation, and access internal chapter resources.
+2. **Event Registration Engine**: A native RSVP system with automated waitlist management, QR-based check-ins, and post-event certificate generation.
+3. **Admin Dashboard (CMS)**: A protected GUI for committee members to update team rosters, publish blogs, and manage event data without direct code interaction.
+4. **Alumni Network Directory**: A searchable professional mapping of chapter alumni, facilitating mentorship opportunities and industry networking.
+5. **Chapter Impact Analytics**: Data-driven dashboards visualizing member growth, event engagement trends, and community reach to inform chapter decisions.
+6. **Automated Communication Protocol**: Integration of PWA notifications and automated email triggers for event reminders, deadline alerts, and newsletter updates.
 
 ---
 
@@ -86,12 +82,12 @@ Our vision for the platform extends far beyond a static informational site. Here
 
 | Domain | Technologies / Frameworks / Tools |
 |---|---|
-| Frontend | Next.js 15, React 18, TypeScript, Tailwind CSS v4, Framer Motion, GSAP + ScrollTrigger, shadcn/ui, Aceternity UI, Radix UI, Lucide React, next/font, next/image |
-| Backend | Next.js API Routes, Node.js, REST API design, next-mdx-remote, gray-matter, Vercel Edge Functions |
-| AI | Prompt engineering, LLM-assisted development (Google Antigravity + Claude Sonnet 4.6), AI-generated placeholder content with manual curation |
-| ML | — |
-| DevOps | Vercel (CI/CD, Preview Deployments, Analytics), GitHub Actions, ESLint, Prettier, TypeScript strict mode, npm |
-| Other | UI/UX Design (Figma wireframing, design systems, responsive design), Web Accessibility (WCAG AA, ARIA, prefers-reduced-motion), SEO (OpenGraph, semantic HTML, metadata API), Git workflow, MDX authoring |
+| Frontend | Next.js 16, React 19, TypeScript, Tailwind CSS v4, Framer Motion, GSAP + ScrollTrigger, shadcn/ui, Aceternity UI, Radix UI, Lucide React |
+| Backend | FastAPI, Node.js, Next.js API Routes, REST APIs, gRPC, Docker, AWS (SageMaker, EC2), Google Cloud |
+| AI | LangChain, RAG, Transformers (BERT/ViT), LLMs, Computer Vision, MCP |
+| ML | PyTorch, TensorFlow, Scikit-Learn, MLOps |
+| DevOps | Vercel (CI/CD, Analytics), GitHub Actions, ESLint, npm, Docker |
+| Other | Python, C/C++, SQL, Bash/Shell, Git, OpenCV, Pandas, NumPy, HuggingFace, Postman, LaTeX, UI/UX Design |
 
 ---
 
@@ -124,8 +120,8 @@ To run this project locally, ensure you have Node.js 18.17+ installed.
 
 The website relies on a strict data-layer architecture to make updates easy for non-developers. Future committee members do not need to touch the UI code to update chapter information:
 
-- **Adding a new Team Member:** Simply open `src/data/team.ts` and append a new JSON object to the array under the relevant `year`.
-- **Adding a new Event:** Edit `src/data/events.ts` to add upcoming or past events.
+- **Adding a new Team Member:** Simply open `src/data/team.ts` (or `team-mapping.json` for personnel verification) and append a new JSON object to the array under the relevant `year`.
+- **Adding a new Event:** Edit `src/data/events.ts` (or the `EventsPage` component state) to add upcoming or past events.
 - **Publishing a Blog Post:** Create a new `.mdx` file inside the `src/content/blog/` directory following the frontmatter template.
 
 ---
