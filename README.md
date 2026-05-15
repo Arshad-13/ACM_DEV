@@ -14,7 +14,7 @@
 ## SECTION 1 — PROJECT DESCRIPTION
 
 ### Overview
-This repository contains the official website for the **ACM SVNIT Student Chapter**. The platform was engineered from the ground up to compete for the "Outstanding Chapter Website" award at the ACM India National Summit. It serves as the digital hub for our student community, providing centralized access to our technical events, competitive programming resources, hackathon recaps, and chapter archives.
+A full-stack web platform built for the **ACM Student Chapter at NIT Surat** (estd 2006), serving as the digital hub for the chapter's community, events, and archives. The site features a verified personnel directory spanning multiple batches of ACM Core Committee, an interactive dual-orbit event trajectory visualization, a dedicated DotSlash portal, a functional command-line terminal interface, an MDX-powered technical blog, and a recruitment portal — all built on a **Brutalist Dark** design system with Neon Cyan accents, Space Grotesk typography, and smooth motion design powered by Framer Motion and GSAP.
 
 ### Architecture
 The project is built on a modern, highly-performant frontend stack utilizing a component-based architecture with a strict Server/Client component split:
