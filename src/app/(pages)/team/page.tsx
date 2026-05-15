@@ -3,18 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { teamMembers } from "@/data/team";
+import { getAllBatches, getTeamByBatch } from "@/lib/team-data";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import TeamShowcase from "@/components/ui/team-showcase";
-import { TeamMember } from "@/types";
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function TeamPage() {
-  const years = ["2024-25", "2023-24", "2022-23"];
+  const years = getAllBatches();
   const [activeYear, setActiveYear] = useState(years[0]);
   const [showArchive, setShowArchive] = useState(false);
 
-  const activeTeam = teamMembers.filter((m) => m.year === activeYear);
+  const activeTeam = getTeamByBatch(activeYear);
 
   return (
     <div className="min-h-screen pt-32 pb-24 w-full overflow-x-hidden bg-black text-white">
@@ -90,7 +89,7 @@ export default function TeamPage() {
               >
                 <div className="py-8 space-y-16">
                   {years.slice(1).map((year) => {
-                    const pastTeam = teamMembers.filter((m) => m.year === year);
+                    const pastTeam = getTeamByBatch(year);
                     return (
                       <div key={year} className="space-y-8">
                         <h3 className="font-display text-4xl font-bold text-white mb-6 border-l-4 border-[var(--accent)] pl-6 uppercase tracking-tighter">

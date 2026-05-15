@@ -10,7 +10,7 @@ const BANNER = `
  / ___ / /___/ /  / /_____/ ___/ / | |/ / /|  // /  / /    
 /_/  |_\\____/_/  /_/      /____/  |___/_/ |_/___/ /_/     
                                                                       
-[ACM SVNIT COMMAND INTERFACE v2.0.4]
+[ACM SVNIT COMMAND INTERFACE v2.5.6]
 Connection established via secure tunnel...
 Welcome to the ACM SVNIT Command Center.
 Type 'help' to see available protocols.
@@ -50,7 +50,7 @@ engineering through workshops, bootcamps, and hackathons.
 
 • Membership: 500+ Active Student Members
 • Flagship Hackathon: DotSlash (9+ Successful Editions)
-• Workshops: 15+ Technical Sessions per Academic Year
+• Major Events: 12+ Official Protocols Executed (25-26)
 • Alumni Network: Placed at Google, Amazon, Microsoft, Meta
 • Reach: 2000+ Students impacted across the country
     `,
@@ -58,20 +58,22 @@ engineering through workshops, bootcamps, and hackathons.
 [DOTSLASH_HACKATHON_LOGS]
 
 Current Version: 10.0 (Upcoming)
-Duration: 24 Hours
+Edition: Decennial
+Date: 2027
 Prize Pool: ₹1,00,000+
-Focus: AI, Web3, FinTech, and Open Innovation
+Focus: The Future of Computing
 
-DotSlash is one of India's most prestigious collegiate hackathons,
-known for its rigorous competition and high-quality mentorship.
+DotSlash 10.0 marks a decade of innovation. We are preparing 
+for our largest and most impactful hackathon yet.
     `,
     'events': () => `
-[EVENT_LOGS]
+[EVENT_LOGS_25-26]
 
-1. CP Bootcamp: Comprehensive DSA and Algorithms training.
-2. Winter of Code: Month-long open source contribution drive.
-3. Tech Talks: Monthly sessions with industry leaders.
-4. DevDays: Weekend-long development sprints.
+1. Echelon: National Cybersecurity CTF & Hackathon.
+2. ACM ICPC: Regional qualifier for the premier global CP contest.
+3. Genesis: Month-long AI/ML & Web Development Bootcamp.
+4. n8n Workshop: Automation session for workflow optimization.
+5. Summer Challenge: CP competition for sophomores.
     `,
     'socials': () => `
 [COMMUNICATION_CHANNELS]
@@ -185,7 +187,7 @@ Type 'help' to see available protocols.`
             <div className="w-2.5 h-2.5 rounded-full bg-[#1A1A1A] border border-zinc-800" />
             <div className="w-2.5 h-2.5 rounded-full bg-[#1A1A1A] border border-zinc-800" />
           </div>
-          <div className="flex-1 text-center font-bold opacity-50">SYSTEM_CORE // ACM_SVNIT_OS_v2.0.4</div>
+          <div className="flex-1 text-center font-bold opacity-50">SYSTEM_CORE // ACM_SVNIT_OS_v2.5.6</div>
           <div className="flex items-center gap-2 text-[var(--accent)] opacity-80">
             <span className="animate-pulse">●</span> LIVE_LINK
           </div>

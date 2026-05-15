@@ -5,6 +5,28 @@ import BackgroundBeams from "@/components/aceternity/BackgroundBeams";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Terminal, Code2, Cpu, Zap, Timer, CheckCircle } from "lucide-react";
+import { ChapterTimeline } from "@/components/ui/chapter-timeline";
+
+const dotslashHistoryData = [
+  {
+    year: "10.0",
+    title: "Decennial",
+    events: ["The Future of Computing", "Upcoming 2027", "10 Years of Innovation"],
+    team: [{ role: "Status", name: "Planned" }]
+  },
+  {
+    year: "9.0",
+    title: "Glitchverse",
+    events: ["Theme: Code the Cosmos", "Flagship 24hr Hackathon", "March 21-22, 2026", "National-Level Competition"],
+    team: [{ role: "Status", name: "Completed" }, { role: "Prize", name: "₹1L+" }]
+  },
+  {
+    year: "8.0",
+    title: "2025",
+    events: ["Flagship Hackathon", "8th Edition Success"],
+    team: [{ role: "Archive", name: "Verified" }]
+  }
+];
 
 export default function DotSlashPage() {
   return (
@@ -30,7 +52,7 @@ export default function DotSlashPage() {
           >
             {/* Status Badge */}
             <div className="mb-8 inline-flex items-center gap-3 px-4 py-2 border border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] font-mono text-xs md:text-sm tracking-widest uppercase shadow-[0_0_15px_var(--accent)] animate-pulse">
-              <Terminal size={16} /> DotSlash 10.0 • Loading...
+              <Terminal size={16} /> DotSlash 10.0 • The Decennial Edition
             </div>
             
             {/* Massive Branding */}
@@ -55,7 +77,7 @@ export default function DotSlashPage() {
                 <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest mt-2">Hours</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center">
-                <Users className="text-[var(--accent)] mb-3" size={32} />
+                <Users size={32} className="text-[var(--accent)] mb-3" />
                 <span className="text-3xl md:text-5xl font-black font-display text-white">1000+</span>
                 <span className="text-xs font-mono text-zinc-500 uppercase tracking-widest mt-2">Hackers</span>
               </div>
@@ -124,8 +146,8 @@ export default function DotSlashPage() {
 
       {/* LEGACY / PAST EDITIONS */}
       <section className="py-24 md:py-32 border-t border-[#1A1A1A] bg-black">
-        <div className="container-width px-6 md:px-12">
-          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-6">
+        <div className="container-width px-6 md:px-12 mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <h2 className="text-5xl md:text-7xl font-black font-display uppercase tracking-tighter leading-none">
               The <span className="text-[var(--accent)]">Legacy</span>
             </h2>
@@ -133,42 +155,15 @@ export default function DotSlashPage() {
               9 Editions. Thousands of Hackers.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-l border-t border-[#1A1A1A]">
-            {[
-              { ed: "9.0", year: "2024", theme: "AI & Web3 Innovation", hackers: "1200+" },
-              { ed: "8.0", year: "2023", theme: "Open Source & Security", hackers: "1000+" },
-              { ed: "7.0", year: "2022", theme: "Pandemic Recovery Solutions", hackers: "800+" },
-              { ed: "6.0", year: "2021", theme: "Digital Renaissance (Online)", hackers: "1500+" },
-              { ed: "5.0", year: "2020", theme: "Smart Cities & IoT", hackers: "700+" },
-              { ed: "4.0", year: "2019", theme: "Fintech & Blockchain", hackers: "500+" },
-            ].map((past) => (
-              <div key={past.ed} className="p-8 border-r border-b border-[#1A1A1A] hover:bg-[#050505] transition-colors group">
-                 <div className="flex justify-between items-start mb-12">
-                    <span className="font-display font-black text-4xl text-white group-hover:text-[var(--accent)] transition-colors">
-                      {past.ed}
-                    </span>
-                    <span className="font-mono text-xs text-zinc-500 uppercase tracking-widest border border-zinc-800 px-2 py-1">
-                      {past.year}
-                    </span>
-                 </div>
-                 <h3 className="font-mono font-bold text-white uppercase tracking-wider mb-2">
-                    {past.theme}
-                 </h3>
-                 <p className="font-mono text-sm text-[var(--accent)]">
-                    {past.hackers} Hackers
-                 </p>
-              </div>
-            ))}
-          </div>
         </div>
+        
+        <ChapterTimeline data={dotslashHistoryData} />
       </section>
 
     </div>
   );
 }
 
-// Just a quick icon for users since we didn't import it at the top to avoid clutter
 function Users({ size = 24, ...props }: React.SVGProps<SVGSVGElement> & { size?: number }) {
   return (
     <svg

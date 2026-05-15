@@ -1,24 +1,9 @@
 export default function TestimonialsSection() {
   const testimonials = [
     {
-      quote: "ACM SVNIT gave me the platform to explore web development and build projects that actually matter.",
-      name: "Rahul M.",
-      title: "Third Year, CSE",
-    },
-    {
-      quote: "Organizing DotSlash was the highlight of my college life. I learned more about leadership and tech.",
-      name: "Sneha K.",
-      title: "Final Year, ECE",
-    },
-    {
-      quote: "The open-source contribution drive totally changed my perspective. I landed my first major internship.",
-      name: "Aman S.",
-      title: "Second Year, CSE",
-    },
-    {
-      quote: "From late-night coding sessions to winning hackathons together, ACM is more than a club—it's a family.",
-      name: "Priya V.",
-      title: "Third Year, AI",
+      quote: "ACM SVNIT continues to foster a culture of excellence and innovation on campus, empowering the next generation of engineers.",
+      name: "Chapter Legacy",
+      title: "Established 2006",
     },
   ];
 

@@ -16,10 +16,10 @@ export default function CTASection() {
         </div>
         
         <Link
-          href="/contact"
+          href="/join"
           className="group inline-flex items-center justify-between gap-4 bg-black text-white px-8 py-6 font-display text-2xl uppercase tracking-tighter hover:bg-white hover:text-black transition-colors border border-black hover:border-black"
         >
-          <span>Apply Now</span>
+          <span>Join ACM</span>
           <ArrowUpRight className="w-8 h-8 group-hover:rotate-45 transition-transform" />
         </Link>
       </div>

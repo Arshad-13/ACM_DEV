@@ -93,27 +93,33 @@ const FlowArt: React.FC<FlowArtProps> = ({
               start: 'top bottom',
               end: 'top 25%',
               scrub: true,
+              invalidateOnRefresh: true,
             },
           });
           if (tween.scrollTrigger) triggers.push(tween.scrollTrigger);
         }
 
         if (i < sections.length - 1) {
-          triggers.push(
-            ScrollTrigger.create({
-              trigger: section,
-              start: 'bottom bottom',
-              end: 'bottom top',
-              pin: true,
-              pinSpacing: false,
-            }),
-          );
+          const st = ScrollTrigger.create({
+            trigger: section,
+            start: 'bottom bottom',
+            end: 'bottom top',
+            pin: true,
+            pinSpacing: false,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          });
+          triggers.push(st);
         }
       });
 
-      ScrollTrigger.refresh();
+      // Delayed refresh to handle Next.js layout stability
+      const refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
 
       return () => {
+        clearTimeout(refreshTimeout);
         triggers.forEach((t) => t.kill());
       };
     },

@@ -3,13 +3,38 @@
 import CountUp from "react-countup";
 import { UsersIcon, CalendarIcon, AwardIcon, FlameIcon, TrophyIcon, StarIcon, ShieldCheckIcon } from "lucide-react";
 import { MovingBorder } from "@/components/aceternity";
+import { ChapterTimeline } from "@/components/ui/chapter-timeline";
 
 const extendedAchievements = [
-  { id: "1", title: "Best Student Chapter", description: "Awarded the Best Student Chapter in the region for outstanding activities and technical contributions.", year: "2023", prestigious: true },
-  { id: "2", title: "DotSlash Success", description: "Successfully hosted DotSlash Hackathon with over 1200 participants from across the country.", year: "2024", prestigious: false },
-  { id: "3", title: "Excellence in Open Source", description: "Recognized nationally for generating 500+ successful pull requests during Hacktoberfest.", year: "2022", prestigious: true },
-  { id: "4", title: "Top AI Community", description: "Awarded the best AI/ML development club among all NITs.", year: "2023", prestigious: false },
-  { id: "5", title: "Best Design Initiative", description: "Acknowledged for redefining branding and creating accessible technical content.", year: "2021", prestigious: false },
+  { id: "1", title: "DotSlash 9.0 - Glitchverse", description: "Set to be the largest flagship hackathon in the region with ₹1L+ prize pool.", year: "2026", prestigious: true },
+  { id: "2", title: "National CTF - Echelon", description: "Successfully launched the first national-level Cybersecurity CTF and Hackathon.", year: "2026", prestigious: true },
+];
+
+const chapterHistoryData = [
+  {
+    year: "2023-24",
+    title: "Era of Innovation",
+    events: ["Growth of AI/ML workshops", "Launch of specialized CP Bootcamps"],
+    team: [
+      { role: "Core Committee", name: "Batch 23-24" }
+    ]
+  },
+  {
+    year: "2024-25",
+    title: "The Golden Era",
+    events: ["Expansion of DotSlash Flagship", "National Presence established"],
+    team: [
+      { role: "Core Committee", name: "Batch 24-25" }
+    ]
+  },
+  {
+    year: "2025-26",
+    title: "Current Frontier",
+    events: ["DotSlash 9.0 Glitchverse", "Echelon Cybersecurity Hackathon"],
+    team: [
+      { role: "Core Committee", name: "Batch 25-26" }
+    ]
+  }
 ];
 
 export default function AchievementsPage() {
@@ -115,6 +140,8 @@ export default function AchievementsPage() {
           </div>
         </div>
       </section>
+
+      <ChapterTimeline data={chapterHistoryData} />
     </div>
   );
 }
